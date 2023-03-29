@@ -1,0 +1,13 @@
+[book]
+authors = ["Jared Harper"]
+language = "en"
+multilingual = false
+src = "src"
+title = "OpenBSD Notes"
+
+[output.html]
+git-repository-url = "https://github.com/lucky/openbsd-notes"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/lucky/openbsd-notes/edit/main/guide/{path}"
+site-url = "/openbsd-notes/"
+cname = "hrpr.us"
