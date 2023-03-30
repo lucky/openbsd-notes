@@ -1,10 +1,12 @@
 # Gunicorn
 
 Running a [Gunicorn](https://gunicorn.org/) daemon on OpenBSD is easy. Make
-sure to have Gunicorn installed:
+sure to have Gunicorn and
+[setproctitle](https://pypi.org/project/setproctitle/)[^setproctitle]
+installed:
 
 ```shell
-# pkg_add py3-gunicorn
+# pkg_add py3-gunicorn py3-setproctitle
 ```
 
 Choose a place to deploy your app. The app in this example is called `myapp`
@@ -41,3 +43,8 @@ Now you should be able to enable and start your daemon:
 ```
 
 If you run into trouble, check out [debugging `rcctl`](debugging_rcctl.md)
+
+---
+
+[^setproctitle]: This is necessary for Gunicorn's `--name` flag to work. If
+  this is not available, the `pexp` will be incorrect.
