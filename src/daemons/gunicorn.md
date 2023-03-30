@@ -1,6 +1,6 @@
 # Gunicorn
 
-Running a [Gunicorn](https://gunicorn.org/) service on OpenBSD is easy. Make
+Running a [Gunicorn](https://gunicorn.org/) daemon on OpenBSD is easy. Make
 sure to have Gunicorn installed:
 
 ```shell
@@ -33,7 +33,7 @@ pexp=".*gunicorn: master \[myapp\].*"
 rc_cmd $1
 ```
 
-Now you should be able to enable and start your service:
+Now you should be able to enable and start your daemon:
 
 ```shell
 # rcctl enable myapp

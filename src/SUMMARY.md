@@ -2,11 +2,15 @@
 
 [Introduction](README.md)
 
-# Basics
+- [Basics]()
+    - [doas, not sudo](basics/doas.md)
+    - [ksh](basics/ksh.md)
 
-- [`doas`](basics/doas.md)
+- [Daemons](daemons/README.md)
+    - [Gunicorn](daemons/gunicorn.md)
+    - [Debugging rcctl](daemons/debugging_rcctl.md)
 
-# Services
-
-- [Gunicorn](services/gunicorn.md)
-- [Debugging `rcctl`](services/debugging_rcctl.md)
+- [HTTP and TLS](http/README.md)
+    - [httpd](http/httpd.md)
+    - [nginx](http/nginx.md)
+    - [acme-client](http/acme-client.md)
