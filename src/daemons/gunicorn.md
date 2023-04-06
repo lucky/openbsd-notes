@@ -25,8 +25,13 @@ As root (via [`doas`](/basics/doas.md)), create the file `/etc/rc.d/myapp`:
 
 daemon="/usr/local/bin/gunicorn -D"
 daemon_user="www"
-daemon_flags="--bind 127.0.0.1:8000 --chdir /var/www/myapp --name webapp
-myapp:app"
+daemon_flags="--bind 127.0.0.1:8000 \
+	--log-syslog \
+	--log-syslog-to unix:///dev/log \
+	--disable-redirect-access-to-syslog \
+	--chdir /var/www/myapp \
+	--name myapp \
+    myapp:app"
 
 . /etc/rc.d/rc.subr
 
@@ -34,6 +39,11 @@ pexp=".*gunicorn: master \[myapp\].*"
 
 rc_cmd $1
 ```
+
+We send logs to syslog with `--log-syslog` and `--log-syslog-to`, and disable
+sending access logs with `--disable-redirect-access-to-syslog` because they
+are generally too verbose. With these settings and a default syslog
+configuration, your logs will end up in `/var/log/messages`
 
 Now you should be able to enable and start your daemon:
 
